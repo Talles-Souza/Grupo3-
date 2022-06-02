@@ -43,9 +43,6 @@ public class Produto {
 	@JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
 	private Categoria categoria;
 
-	@OneToMany(mappedBy = "produto")
-	private List<ItemPedido> itemPedidoList;
-
 	public Integer getIdProduto() {
 		return idProduto;
 	}
@@ -108,14 +105,6 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}
-
-	public List<ItemPedido> getItemPedidoList() {
-		return itemPedidoList;
-	}
-
-	public void setItemPedidoList(List<ItemPedido> itemPedidoList) {
-		this.itemPedidoList = itemPedidoList;
 	}
 
 }

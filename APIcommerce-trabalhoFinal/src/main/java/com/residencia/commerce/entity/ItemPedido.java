@@ -34,7 +34,7 @@ public class ItemPedido {
 	 @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
 	 private Pedido pedido;
 
-	@ManyToOne // duvida
+	@ManyToOne 
 	@JoinColumn(name = "id_produto", referencedColumnName = "id_produto")
 	private Produto produto;
 

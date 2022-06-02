@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Endereco {
 
@@ -39,6 +41,7 @@ public class Endereco {
 	private String ufEndereco;
 
 	@OneToMany(mappedBy = "endereco")
+	@JsonIgnore
 	private List<Cliente> clienteList;
 
 	public Integer getIdEndereco() {

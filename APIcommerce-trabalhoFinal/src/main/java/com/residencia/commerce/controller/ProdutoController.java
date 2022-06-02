@@ -30,7 +30,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> findProdutoById(Integer id){
+	public ResponseEntity<Produto> findProdutoById(@PathVariable Integer id){
 		Produto produto = produtoService.findProdutoById(id);
 		return new ResponseEntity<>(produto, HttpStatus.OK);
 	}
