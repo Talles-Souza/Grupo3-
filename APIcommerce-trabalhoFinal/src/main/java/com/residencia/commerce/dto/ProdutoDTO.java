@@ -1,47 +1,17 @@
-package com.residencia.commerce.entity;
+package com.residencia.commerce.dto;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+public class ProdutoDTO {
 
-@Entity
-@Table(name = "produto")
-public class Produto {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_produto")
 	private Integer idProduto;
-
-	@Column(name = "nome")
 	private String nomeProduto;
-
-	@Column(name = "descricao")
 	private String descricao;
-
-	@Column(name = "qtd_estoque")
 	private Integer qtdEstoqueProduto;
-
-	@Column(name = "data_cadastro")
 	private Date dataCadastroProduto;
-
-	@Column(name = "valor_unitario")
 	private Double valorUnitarioProduto;
-
-	@Column(name = "imagem")
 	private String nomeImagemProduto;
-
-	@ManyToOne
-	@JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
-	private Categoria categoria;
+	private CategoriaDTO categoriaDTO;
 
 	public Integer getIdProduto() {
 		return idProduto;
@@ -99,12 +69,12 @@ public class Produto {
 		this.nomeImagemProduto = nomeImagemProduto;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public CategoriaDTO getCategoriaDTO() {
+		return categoriaDTO;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setCategoriaDTO(CategoriaDTO categoriaDTO) {
+		this.categoriaDTO = categoriaDTO;
 	}
 
 }

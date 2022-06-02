@@ -1,48 +1,15 @@
-package com.residencia.commerce.entity;
+package com.residencia.commerce.dto;
 
-import java.util.List;
+public class EnderecoDTO {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-@Entity
-public class Endereco {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_endereco")
 	private Integer idEndereco;
-
-	@Column(name = "cep")
 	private String cepEndereco;
-
-	@Column(name = "rua")
 	private String ruaEndereco;
-
-	@Column(name = "bairro")
 	private String bairroEndereco;
-
-	@Column(name = "cidade")
 	private String cidadeEndereco;
-
-	@Column(name = "numero")
 	private Integer numeroEndereco;
-
-	@Column(name = "complemento")
 	private String complemetnoEndereco;
-
-	@Column(name = "uf")
 	private String ufEndereco;
-
-	@OneToMany(mappedBy = "endereco")
-	@JsonIgnore
-	private List<Cliente> clienteList;
 
 	public Integer getIdEndereco() {
 		return idEndereco;
@@ -106,14 +73,6 @@ public class Endereco {
 
 	public void setUfEndereco(String ufEndereco) {
 		this.ufEndereco = ufEndereco;
-	}
-
-	public List<Cliente> getClienteList() {
-		return clienteList;
-	}
-
-	public void setClienteList(List<Cliente> clienteList) {
-		this.clienteList = clienteList;
 	}
 
 }
