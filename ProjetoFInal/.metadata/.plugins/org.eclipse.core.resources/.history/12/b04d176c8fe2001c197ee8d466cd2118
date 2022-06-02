@@ -1,0 +1,43 @@
+package com.residencia.commerce.valid;
+
+import java.lang.annotation.Documented;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+
+public class Valid {
+	
+	
+	@NotBlank(message = "O nome é obrigatório")
+	@Length(min = 3, max = 35, message = "O nome deverá ter no máximo {max} caracteres")
+	@Pattern (regexp ="^[A-Za-z]{1,32}$", message = "A primeira letra deve ser maiúscula e o nome só pode conter letras ")
+	@Documented
+	@Constraint(validatedBy = {})
+	public @interface ValidaNome {
+
+	    String message() default "Preencha os campos corretamente";
+
+	    Class<?>[] groups() default {};
+
+	    Class<? extends Payload>[] payload() default {};
+	}
+	@NotBlank(message = "O nome é obrigatório")
+	@Length(min = 3, max = 35, message = "O nome deverá ter no máximo {max} caracteres")
+	@Pattern (regexp ="^[A-Za-z]{1,32}$", message = "A primeira letra deve ser maiúscula e o nome só pode conter letras ")
+	@Documented
+	@Constraint(validatedBy = {})
+	public @interface ValidString {
+
+	    String message() default "Preencha os campos corretamente";
+
+	    Class<?>[] groups() default {};
+
+	    Class<? extends Payload>[] payload() default {};
+	}
+	
+	
+}
