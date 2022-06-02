@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -31,6 +33,10 @@ public class Pedido {
 
 	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itemPedidoList;
+
+	@ManyToMany
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+	private Cliente cliente;
 
 	public Integer getIdPedido() {
 		return idPedido;
@@ -78,6 +84,14 @@ public class Pedido {
 
 	public void setItemPedidoList(List<ItemPedido> itemPedidoList) {
 		this.itemPedidoList = itemPedidoList;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 }

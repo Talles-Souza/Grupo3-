@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.residencia.commerce.dto.EnderecoDTO;
 import com.residencia.commerce.entity.Endereco;
 import com.residencia.commerce.repository.EnderecoRepository;
 
@@ -34,4 +35,18 @@ public class EnderecoService {
 		enderecoRepository.delete(endereco);
 	}
 
+	public Endereco ConverteDTOToEntidade(EnderecoDTO enderecoDTO) {
+		Endereco endereco = new Endereco();
+
+		endereco.setBairroEndereco(enderecoDTO.getBairroEndereco());
+		endereco.setCepEndereco(enderecoDTO.getCepEndereco());
+		endereco.setCidadeEndereco(enderecoDTO.getCidadeEndereco());
+		endereco.setComplemetnoEndereco(enderecoDTO.getComplemetnoEndereco());
+		endereco.setIdEndereco(enderecoDTO.getIdEndereco());
+		endereco.setNumeroEndereco(enderecoDTO.getNumeroEndereco());
+		endereco.setRuaEndereco(enderecoDTO.getRuaEndereco());
+		endereco.setUfEndereco(enderecoDTO.getUfEndereco());
+
+		return endereco;
+	}
 }

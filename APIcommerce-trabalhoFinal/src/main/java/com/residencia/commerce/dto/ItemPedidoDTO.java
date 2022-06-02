@@ -1,42 +1,15 @@
-package com.residencia.commerce.entity;
+package com.residencia.commerce.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+public class ItemPedidoDTO {
 
-@Entity
-public class ItemPedido {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_item_pedido")
 	private Integer idItemPedido;
-
-	@Column(name = "quantidade")
 	private Integer quantidadeItemProduto;
-
-	@Column(name = "preco_venda")
 	private Double precoVendaItemPedido;
-
-	@Column(name = "percentual_desconto")
 	private Double percentualDescontoItemPedido;
-
-	@Column(name = "valor_bruto")
 	private Double valorBrutoItemPedido;
-
-	@Column(name = "valor_liquido")
 	private Double valorLiquidoItemPedido;
-
-	 @ManyToOne
-	 @JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
-	 private Pedido pedido;
-
-	@ManyToOne 
-	@JoinColumn(name = "id_produto", referencedColumnName = "id_produto")
-	private Produto produto;
+	private PedidoDTO pedidoDTO;
+	private ProdutoDTO produtoDTO;
 
 	public Integer getIdItemPedido() {
 		return idItemPedido;
@@ -86,12 +59,20 @@ public class ItemPedido {
 		this.valorLiquidoItemPedido = valorLiquidoItemPedido;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public PedidoDTO getPedidoDTO() {
+		return pedidoDTO;
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setPedidoDTO(PedidoDTO pedidoDTO) {
+		this.pedidoDTO = pedidoDTO;
+	}
+
+	public ProdutoDTO getProdutoDTO() {
+		return produtoDTO;
+	}
+
+	public void setProdutoDTO(ProdutoDTO produtoDTO) {
+		this.produtoDTO = produtoDTO;
 	}
 
 }
