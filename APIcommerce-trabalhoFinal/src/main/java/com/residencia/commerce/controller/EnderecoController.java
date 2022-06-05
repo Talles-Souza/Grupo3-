@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.residencia.commerce.dto.ApiCepDTO;
 import com.residencia.commerce.entity.Endereco;
 import com.residencia.commerce.service.EnderecoService;
+import com.residencia.commerce.service.ViaCepService;
 
 @RestController
 @RequestMapping("/endereco")
@@ -23,6 +25,9 @@ public class EnderecoController {
 	
 	@Autowired
 	EnderecoService enderecoService;
+	
+	@Autowired
+	ViaCepService viaCepService;
 	
 	@GetMapping
 	public ResponseEntity<List<Endereco>> findAllEndereco(){
@@ -34,6 +39,11 @@ public class EnderecoController {
 	public ResponseEntity<Endereco> findEnderecoById(@PathVariable Integer id){
 		Endereco endereco = enderecoService.findEnderecoById(id);
 		return new ResponseEntity<>(endereco, HttpStatus.OK);
+	}
+	
+	@GetMapping("/get-by-viacep/{cep}")
+	public ResponseEntity<ApiCepDTO> findEnderecoByConsumingViaCepApi(@PathVariable String cep){
+		return new ResponseEntity<>(viaCepService.consultar(cep), HttpStatus.OK);
 	}
 	
 	@PostMapping
