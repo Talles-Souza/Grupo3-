@@ -2,9 +2,13 @@ package com.residencia.commerce.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.residencia.commerce.dto.ApiCepDTO;
 import com.residencia.commerce.entity.Endereco;
+import com.residencia.commerce.service.EmailSender;
 import com.residencia.commerce.service.EnderecoService;
 import com.residencia.commerce.service.ViaCepService;
 
@@ -28,6 +33,9 @@ public class EnderecoController {
 	
 	@Autowired
 	ViaCepService viaCepService;
+	
+	@Autowired
+	EmailSender sender;
 	
 	@GetMapping
 	public ResponseEntity<List<Endereco>> findAllEndereco(){

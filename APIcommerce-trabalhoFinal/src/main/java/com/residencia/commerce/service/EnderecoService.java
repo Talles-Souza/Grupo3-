@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.residencia.commerce.dto.ApiCepDTO;
 import com.residencia.commerce.dto.EnderecoDTO;
 import com.residencia.commerce.entity.Endereco;
+import com.residencia.commerce.exception.CepException;
 import com.residencia.commerce.repository.EnderecoRepository;
 
 @Service
@@ -30,7 +31,7 @@ public class EnderecoService {
 	public Endereco saveEndereco(Endereco endereco) {
 
 		if (endereco.getCepEndereco().isEmpty() || endereco.getCepEndereco().length() < 8) {
-			throw new RuntimeException("Cep Invalido");
+			throw new CepException("Cep Invalido");
 		}
 		
 		String cep = endereco.getCepEndereco();

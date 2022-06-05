@@ -94,4 +94,12 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
+	@Override
+	public String toString() {
+		return "Pedido [dataPedido=" + dataPedido + ", dataEntregaPedido=" + dataEntregaPedido + ", statusPedido="
+				+ statusPedido + "]";
+	}
+	
+	
+
 }
